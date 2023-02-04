@@ -3,24 +3,50 @@
 #include<stdio.h>
 int main() 
 {
-	int a = 0;
-	int b = 1;
-	scanf("%d", &a);
-	for (int i = 0; i < a; i++)
+	int arr[] = { 1,2,3,4,5,6,7,8,9,10 };
+	int k = 7;
+
+	int sz = sizeof(arr) / sizeof(arr[0]);
+	int  lift = 0;
+	int right = sz - 1;
+
+	while (lift <= right)
 	{
-		if (i >=0 )
+		int mid = (lift + right) / 2;
+		if (arr[mid] > k)
 		{
-			b = b * (i + 1);
-			printf("%d\n", b);
+			right = mid - 1;
 		}
-		else
+		else if(arr[mid] < k)
 		{
-			printf("输入不正确");
-			continue;
+			lift = mid + 1;
+		}
+		else 
+		{
+			printf("zhao");
+			break;
 		}
 	}
+	if (lift > right) {
+		printf("wu");
+	}
 	return 0;
+
 }
+//int main() 
+//{
+//	int a = 0;
+//	int b = 1;
+//	int c = 0;
+//	for (int i = 1; i <= 3; i++) 
+//	{
+//		b = b * i;
+//		c = c + b;
+//		printf("%d\n", c);
+//	}
+//	
+//	return 0;
+//}
 //int main()
 //{
 //	int ch = 0;
